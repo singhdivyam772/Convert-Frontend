@@ -3,6 +3,7 @@ import HeaderAdjustment from "../Common/HeaderAdjustment";
 import AllFeatureComponents from "../Components/AllFeatureComponents";
 import { Col, Divider, Row } from "antd";
 import { icons } from "antd/es/image/PreviewGroup";
+import { useNavigate } from "react-router-dom";
 const featureData = [
  
   {
@@ -93,6 +94,14 @@ const featureData = [
   },
 ];
 const Landing = () => {
+
+  const navigate = useNavigate();
+
+
+  const navigateToDonload = () => {
+    navigate('/download-page')
+
+  }
   return (
     <main className="flex flex-col justify-center items-center">
       <HeaderAdjustment />
@@ -108,10 +117,11 @@ const Landing = () => {
 
         {/* featrue card */}
         <div className=" flex flex-wrap w-[90vw] justify-center gap-4 items-start">
-          {featureData?.map((data) => (
+          {featureData?.map((data ) => (
             <div
-              className=" flex flex-col justify-center items-start py-6  px-1  w-[260px] h-[15rem] shadow-xl "
+              className=" flex flex-col justify-center items-start py-6  px-1 cursor-pointer duration-500 hover:scale-105 overflow-hidden w-[260px] h-[15rem] shadow-xl "
               key={data.id}
+              onClick={navigateToDonload}
             >
               <img 
               src={data.icon} 
